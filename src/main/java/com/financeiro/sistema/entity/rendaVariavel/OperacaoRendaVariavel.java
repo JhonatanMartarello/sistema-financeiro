@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.financeiro.sistema.entity.geral.Registro;
@@ -30,7 +32,8 @@ public class OperacaoRendaVariavel extends PanacheEntityBase{
     @Column(name = "orv_valor")
     private BigDecimal valor;
 
-    @Column(name = "orv_operacao")
+    @ManyToOne
+    @JoinColumn(name = "orv_operacao")
     private Registro operacao;
 
     @Column(name = "orv_custo")
@@ -39,6 +42,8 @@ public class OperacaoRendaVariavel extends PanacheEntityBase{
     @Column(name = "orv_valor_total")
     private BigDecimal valorTotal;
 
+    @ManyToOne
+    @JoinColumn(name = "orv_resultado_renda_variavel")
     private ResultadoRendaVariavel resultadoRendaVariavel;
 
     public OperacaoRendaVariavel(){

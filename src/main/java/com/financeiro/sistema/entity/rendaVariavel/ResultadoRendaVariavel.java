@@ -1,7 +1,7 @@
 package com.financeiro.sistema.entity.rendaVariavel;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,15 +13,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_resultado_renda_variavel")
 public class ResultadoRendaVariavel extends PanacheEntityBase {
+    
     @Id
+    private Long codResultadoRendaVariavel;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cnpj")
-    @Column(name = "rrv_cnpj_papel")
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name = "rrv_cnpj_papel")
     private Papel cnpjPapel;
 
     @Column(name = "rrv_quantidade_total")
@@ -40,7 +46,7 @@ public class ResultadoRendaVariavel extends PanacheEntityBase {
     private BigDecimal precoMedio;
 
     @OneToMany(cascade=CascadeType.ALL, mappedBy="resultadoRendaVariavel")
-    private ArrayList<OperacaoRendaVariavel> operacoesRendaVariavel;
+    private List<OperacaoRendaVariavel> listaOperacaoRendaVariavel;
 
 
 
@@ -94,6 +100,22 @@ public class ResultadoRendaVariavel extends PanacheEntityBase {
 
     public void setPrecoMedio(BigDecimal precoMedio) {
         this.precoMedio = precoMedio;
+    }
+
+    public Long getCodResultadoRendaVariavel() {
+        return codResultadoRendaVariavel;
+    }
+
+    public void setCodResultadoRendaVariavel(Long codResultadoRendaVariavel) {
+        this.codResultadoRendaVariavel = codResultadoRendaVariavel;
+    }
+
+    public List<OperacaoRendaVariavel> getListaOperacaoRendaVariavel() {
+        return listaOperacaoRendaVariavel;
+    }
+
+    public void setListaOperacaoRendaVariavel(List<OperacaoRendaVariavel> listaOperacaoRendaVariavel) {
+        this.listaOperacaoRendaVariavel = listaOperacaoRendaVariavel;
     }
 
     
