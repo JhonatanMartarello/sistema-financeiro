@@ -11,7 +11,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_registro")
-public class Registro extends PanacheEntityBase{
+public class RegistroVO extends PanacheEntityBase{
 
     @Id
     @Column(name = "reg_id_registro")
@@ -19,7 +19,7 @@ public class Registro extends PanacheEntityBase{
 
     @ManyToOne
     @JoinColumn(name = "reg_cod_dominio")
-    private Dominio codDominio;
+    private DominioVO codDominio;
 
     @Column(name = "reg_cod_registro")
     private Long codRegistro;
@@ -30,7 +30,7 @@ public class Registro extends PanacheEntityBase{
     @Column(name = "reg_complemento")
     private String complemento;
 
-    public Registro(){
+    public RegistroVO(){
     }
 
     public Long getIdRegistro() {
@@ -41,11 +41,11 @@ public class Registro extends PanacheEntityBase{
         this.idRegistro = idRegistro;
     }
 
-    public Dominio getCodDominio() {
+    public DominioVO getCodDominio() {
         return codDominio;
     }
 
-    public void setCodDominio(Dominio codDominio) {
+    public void setCodDominio(DominioVO codDominio) {
         this.codDominio = codDominio;
     }
 

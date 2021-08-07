@@ -11,13 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.financeiro.sistema.entity.geral.Registro;
+import com.financeiro.sistema.entity.geral.RegistroVO;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_operacao_renda_variavel")
-public class OperacaoRendaVariavel extends PanacheEntityBase{
+public class OperacaoRendaVariavelVO extends PanacheEntityBase{
     @Id
     @GeneratedValue
     @Column(name = "orv_cod_operacao")
@@ -34,7 +34,7 @@ public class OperacaoRendaVariavel extends PanacheEntityBase{
 
     @ManyToOne
     @JoinColumn(name = "orv_operacao")
-    private Registro operacao;
+    private RegistroVO operacao;
 
     @Column(name = "orv_custo")
     private BigDecimal custo;
@@ -44,9 +44,9 @@ public class OperacaoRendaVariavel extends PanacheEntityBase{
 
     @ManyToOne
     @JoinColumn(name = "orv_resultado_renda_variavel")
-    private ResultadoRendaVariavel resultadoRendaVariavel;
+    private ResultadoRendaVariavelVO resultadoRendaVariavel;
 
-    public OperacaoRendaVariavel(){
+    public OperacaoRendaVariavelVO(){
 
     }
 

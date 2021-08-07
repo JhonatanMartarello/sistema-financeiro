@@ -9,7 +9,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_papel")
-public class Papel extends PanacheEntityBase {
+public class PapelVO extends PanacheEntityBase {
     @Id
     private Long cnpj;
 
@@ -19,7 +19,7 @@ public class Papel extends PanacheEntityBase {
     @Column(name = "pap_nome")
     private String nome;
 
-    public Papel(){
+    public PapelVO(){
 
     }
 

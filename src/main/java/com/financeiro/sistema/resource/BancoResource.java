@@ -15,7 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.financeiro.sistema.entity.Banco;
+import com.financeiro.sistema.entity.cliente.BancoVO;
 import com.financeiro.sistema.repository.BancoRepository;
 
 @Path("/bancos")
@@ -27,14 +27,14 @@ public class BancoResource {
 
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
-    public List<Banco> buscarBancos(){
+    public List<BancoVO> buscarBancos(){
         return bancoRepository.buscarTodos();
     }
 
     @POST
     @Path("/incluir")
     @Consumes(value = MediaType.APPLICATION_JSON)
-    public Response incluirBanco(Banco banco){
+    public Response incluirBanco(BancoVO banco){
         bancoRepository.incluir(banco);
         return Response.ok(banco).build();
     }
@@ -42,8 +42,8 @@ public class BancoResource {
     @PUT
     @Path("/alterar")
     @Consumes(value = MediaType.APPLICATION_JSON)
-    public Response alterarBanco(Banco banco){
-        Banco bancoEntity = bancoRepository.alterar(banco);
+    public Response alterarBanco(BancoVO banco){
+        BancoVO bancoEntity = bancoRepository.alterar(banco);
         return Response.ok(bancoEntity).build();
     }
 

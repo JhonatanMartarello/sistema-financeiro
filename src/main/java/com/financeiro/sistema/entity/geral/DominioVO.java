@@ -12,7 +12,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_dominio")
-public class Dominio extends PanacheEntityBase{
+public class DominioVO extends PanacheEntityBase{
     @Id
     @Column(name = "dom_cod_dominio")
     private Long codDominio;
@@ -21,9 +21,9 @@ public class Dominio extends PanacheEntityBase{
     private String descricao;
 
     @OneToMany(mappedBy = "codDominio")
-    private List<Registro> listaRegistro;
+    private List<RegistroVO> listaRegistro;
 
-    public Dominio(){
+    public DominioVO(){
     }
 
     public Long getCodDominio() {
@@ -42,11 +42,11 @@ public class Dominio extends PanacheEntityBase{
         this.descricao = descricao;
     }
 
-    public List<Registro> getListaRegistro() {
+    public List<RegistroVO> getListaRegistro() {
         return listaRegistro;
     }
 
-    public void setListaRegistro(List<Registro> listaRegistro) {
+    public void setListaRegistro(List<RegistroVO> listaRegistro) {
         this.listaRegistro = listaRegistro;
     }
     

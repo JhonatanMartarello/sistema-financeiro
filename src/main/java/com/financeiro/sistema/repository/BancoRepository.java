@@ -6,23 +6,23 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
-import com.financeiro.sistema.entity.Banco;
+import com.financeiro.sistema.entity.cliente.BancoVO;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 @ApplicationScoped
-public class BancoRepository implements PanacheRepository<Banco>{
+public class BancoRepository implements PanacheRepository<BancoVO>{
     
-    public List<Banco> buscarTodos (){
-        return Banco.listAll();
+    public List<BancoVO> buscarTodos (){
+        return BancoVO.listAll();
     }
     
-    public Banco encontrarPorNumeroDocumento(Long numeroDocumento){        
-        return Banco.findById(numeroDocumento);
+    public BancoVO encontrarPorNumeroDocumento(Long numeroDocumento){        
+        return BancoVO.findById(numeroDocumento);
     }
 
     public void excluir (Long id){
-        Banco bancoEntity = this.encontrarPorNumeroDocumento(id);
+        BancoVO bancoEntity = this.encontrarPorNumeroDocumento(id);
 
         if(bancoEntity == null){
             throw new WebApplicationException("Banco não encontrado!", Response.Status.NOT_FOUND);
@@ -31,12 +31,12 @@ public class BancoRepository implements PanacheRepository<Banco>{
         bancoEntity.delete();
     }
     
-    public void incluir (Banco banco){
+    public void incluir (BancoVO banco){
         banco.persist();
     }
 
-    public Banco alterar (Banco banco){
-        Banco bancoEntity = this.encontrarPorNumeroDocumento(banco.getNumeroDocumento());
+    public BancoVO alterar (BancoVO banco){
+        BancoVO bancoEntity = this.encontrarPorNumeroDocumento(banco.getNumeroDocumento());
 
         if(bancoEntity == null){
             throw new WebApplicationException("Banco não encontrado!", Response.Status.NOT_FOUND);

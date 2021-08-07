@@ -1,4 +1,4 @@
-package com.financeiro.sistema.entity;
+package com.financeiro.sistema.entity.cliente;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,16 +9,16 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_banco")
-public class Banco extends PanacheEntityBase {
+public class BancoVO extends PanacheEntityBase {
     @Id
     private Long numeroDocumento;
     @Column
     private String nome;
 
-    public Banco() {
+    public BancoVO() {
     }
 
-    public Banco(Long numeroDocumento, String nome) {
+    public BancoVO(Long numeroDocumento, String nome) {
         this.numeroDocumento = numeroDocumento;
         this.nome = nome;
     }

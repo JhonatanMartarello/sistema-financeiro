@@ -20,7 +20,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_resultado_renda_variavel")
-public class ResultadoRendaVariavel extends PanacheEntityBase {
+public class ResultadoRendaVariavelVO extends PanacheEntityBase {
     
     @Id
     private Long codResultadoRendaVariavel;
@@ -28,7 +28,7 @@ public class ResultadoRendaVariavel extends PanacheEntityBase {
     @ManyToOne(fetch = FetchType.LAZY)
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "rrv_cnpj_papel")
-    private Papel cnpjPapel;
+    private PapelVO cnpjPapel;
 
     @Column(name = "rrv_quantidade_total")
     private Integer quantidadeTotal;
@@ -46,19 +46,19 @@ public class ResultadoRendaVariavel extends PanacheEntityBase {
     private BigDecimal precoMedio;
 
     @OneToMany(cascade=CascadeType.ALL, mappedBy="resultadoRendaVariavel")
-    private List<OperacaoRendaVariavel> listaOperacaoRendaVariavel;
+    private List<OperacaoRendaVariavelVO> listaOperacaoRendaVariavel;
 
 
 
-    public ResultadoRendaVariavel() {
+    public ResultadoRendaVariavelVO() {
 
     }
 
-    public Papel getCnpjPapel() {
+    public PapelVO getCnpjPapel() {
         return cnpjPapel;
     }
 
-    public void setCnpjPapel(Papel cnpjPapel) {
+    public void setCnpjPapel(PapelVO cnpjPapel) {
         this.cnpjPapel = cnpjPapel;
     }
 
@@ -110,11 +110,11 @@ public class ResultadoRendaVariavel extends PanacheEntityBase {
         this.codResultadoRendaVariavel = codResultadoRendaVariavel;
     }
 
-    public List<OperacaoRendaVariavel> getListaOperacaoRendaVariavel() {
+    public List<OperacaoRendaVariavelVO> getListaOperacaoRendaVariavel() {
         return listaOperacaoRendaVariavel;
     }
 
-    public void setListaOperacaoRendaVariavel(List<OperacaoRendaVariavel> listaOperacaoRendaVariavel) {
+    public void setListaOperacaoRendaVariavel(List<OperacaoRendaVariavelVO> listaOperacaoRendaVariavel) {
         this.listaOperacaoRendaVariavel = listaOperacaoRendaVariavel;
     }
 
