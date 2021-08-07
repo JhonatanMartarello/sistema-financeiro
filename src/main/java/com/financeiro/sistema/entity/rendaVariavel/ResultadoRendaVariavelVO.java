@@ -7,6 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,6 +25,8 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 public class ResultadoRendaVariavelVO extends PanacheEntityBase {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "rrv_cod_resultado_renda_variavel")
     private Long codResultadoRendaVariavel;
 
     @ManyToOne(fetch = FetchType.LAZY)

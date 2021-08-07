@@ -7,6 +7,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
 import com.financeiro.sistema.entity.cliente.BancoVO;
+import com.financeiro.sistema.processar_arquivo.LerArquivoCsv;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
@@ -14,6 +15,8 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 public class BancoRepository implements PanacheRepository<BancoVO>{
     
     public List<BancoVO> buscarTodos (){
+        LerArquivoCsv lerArquivoCsv = new LerArquivoCsv();
+        lerArquivoCsv.lerArquivoCsv();
         return BancoVO.listAll();
     }
     

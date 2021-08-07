@@ -11,6 +11,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 @Table(name = "tb_papel")
 public class PapelVO extends PanacheEntityBase {
     @Id
+    @Column(name = "pap_cnpj")
     private Long cnpj;
 
     @Column(name = "pap_codigo_papel")
