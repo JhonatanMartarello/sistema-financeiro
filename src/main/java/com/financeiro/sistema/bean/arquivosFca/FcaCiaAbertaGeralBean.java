@@ -321,7 +321,6 @@ public class FcaCiaAbertaGeralBean {
         Long campoConvertido = null;
         try{
             campoConvertido = campo == null ? null : Long.parseLong(campo.replaceAll("[^0-9]+", ""));
-
         }catch (NumberFormatException e){
             System.out.println("Não foi possível converter" + e);
         }
@@ -332,8 +331,7 @@ public class FcaCiaAbertaGeralBean {
         Date campoConvertido = null;
         try {
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-            campoConvertido = formato.parse(campo);
-        
+            campoConvertido = formato.parse(campo);        
         } catch (ParseException e) {
             System.out.println("Erro ao formatar dataConstituicao: " + campo);
         }
