@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.financeiro.sistema.entity.cliente.BancoVO;
-import com.financeiro.sistema.repository.BancoRepository;
+import com.financeiro.sistema.repository.cliente.BancoRepository;
 
 @Path("/bancos")
 @Transactional

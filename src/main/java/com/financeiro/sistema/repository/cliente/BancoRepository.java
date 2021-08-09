@@ -1,4 +1,4 @@
-package com.financeiro.sistema.repository;
+package com.financeiro.sistema.repository.cliente;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class BancoRepository implements PanacheRepository<BancoVO>{
     
     public List<BancoVO> buscarTodos (){
         LerArquivoCsv lerArquivoCsv = new LerArquivoCsv();
-        lerArquivoCsv.lerArquivoCsv();
+        lerArquivoCsv.lerArquivoCsv("fca_cia_aberta_geral_2021.csv");
         return BancoVO.listAll();
     }
     
