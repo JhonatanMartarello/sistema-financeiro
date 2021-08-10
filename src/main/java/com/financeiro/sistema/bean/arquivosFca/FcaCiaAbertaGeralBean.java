@@ -1,9 +1,8 @@
 package com.financeiro.sistema.bean.arquivosFca;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.financeiro.sistema.utils.ConverterString;
 import com.opencsv.bean.CsvBindByName;
 
 public class FcaCiaAbertaGeralBean {
@@ -293,49 +292,26 @@ public class FcaCiaAbertaGeralBean {
 
     public void setPaginaWeb(String paginaWeb) {
         this.paginaWeb = paginaWeb;
-    }
-
-    
+    }    
 
     public Date getDataReferenciaFormatada() {
-        return this.converterParaData(this.dataReferencia);
+        return new ConverterString().converterParaData(this.dataReferencia);
     }
 
     public Date getDataConstituicaoFormatada() {
-        return this.converterParaData(this.dataConstituicao);
+        return new ConverterString().converterParaData(this.dataConstituicao);
     }
     
     public Long getCnpjCompanhiaFormatada() {
-        return this.converterParaLong(this.cnpjCompanhia);
+        return new ConverterString().converterParaLong(this.cnpjCompanhia);
     }
 
     public Long getIdDocumentoFormatada() {
-        return this.converterParaLong(this.idDocumento);
+        return new ConverterString().converterParaLong(this.idDocumento);
     }
 
     public Long getCodigoCvmFormatada() {
-        return this.converterParaLong(this.codigoCvm);
-    }
-
-    private Long converterParaLong(String campo){
-        Long campoConvertido = null;
-        try{
-            campoConvertido = campo == null ? null : Long.parseLong(campo.replaceAll("[^0-9]+", ""));
-        }catch (NumberFormatException e){
-            System.out.println("Não foi possível converter" + e);
-        }
-        return campoConvertido;
-    }
-
-    private Date converterParaData(String campo) {
-        Date campoConvertido = null;
-        try {
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-            campoConvertido = formato.parse(campo);        
-        } catch (ParseException e) {
-            System.out.println("Erro ao formatar dataConstituicao: " + campo);
-        }
-        return campoConvertido;
+        return new ConverterString().converterParaLong(this.codigoCvm);
     }
     
 }
