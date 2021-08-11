@@ -12,5 +12,6 @@ public class FcaCiaAbertaValorMobiliarioRepository implements PanacheRepository<
     
     public void incluir (FcaCiaAbertaValorMobiliarioVO fcaCiaAbertaGeralVO){
         fcaCiaAbertaGeralVO.persist();
+        
     }
 }

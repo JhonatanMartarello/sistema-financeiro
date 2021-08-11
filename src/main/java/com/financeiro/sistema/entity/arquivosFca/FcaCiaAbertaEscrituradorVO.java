@@ -1,18 +1,96 @@
 package com.financeiro.sistema.entity.arquivosFca;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.financeiro.sistema.bean.arquivosFca.FcaCiaAbertaEscrituradorBean;
+import com.financeiro.sistema.utils.ConverterString;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 @Entity
 @Table(name = "tb_fca_cia_aberta_escriturador")
-public class FcaCiaAbertaEscrituradorVO {
-    @Id
-    @Column(name = "cae_cnpj_companhia")
-    private Long cnpjCompanhia;
+public class FcaCiaAbertaEscrituradorVO extends PanacheEntityBase {
+
+    @Embeddable
+    public class FcaCiaAbertaEscrituradorId implements Serializable {
+
+        @Column(name = "cae_cnpj_companhia")
+        private Long cnpjCompanhia;
+
+        @Column(name = "cae_cnpj_escriturador")
+        private Long cnpjEscriturador;
+
+        public FcaCiaAbertaEscrituradorId() {
+        }
+
+        public Long getCnpjCompanhia() {
+            return cnpjCompanhia;
+        }
+
+        public void setCnpjCompanhia(Long cnpjCompanhia) {
+            this.cnpjCompanhia = cnpjCompanhia;
+        }
+
+        public Long getCnpjEscriturador() {
+            return cnpjEscriturador;
+        }
+
+        public void setCnpjEscriturador(Long cnpjEscriturador) {
+            this.cnpjEscriturador = cnpjEscriturador;
+        }
+
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + getEnclosingInstance().hashCode();
+            result = prime * result + ((cnpjCompanhia == null) ? 0 : cnpjCompanhia.hashCode());
+            result = prime * result + ((cnpjEscriturador == null) ? 0 : cnpjEscriturador.hashCode());
+            return result;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            FcaCiaAbertaEscrituradorId other = (FcaCiaAbertaEscrituradorId) obj;
+            if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
+                return false;
+            if (cnpjCompanhia == null) {
+                if (other.cnpjCompanhia != null)
+                    return false;
+            } else if (!cnpjCompanhia.equals(other.cnpjCompanhia))
+                return false;
+            if (cnpjEscriturador == null) {
+                if (other.cnpjEscriturador != null)
+                    return false;
+            } else if (!cnpjEscriturador.equals(other.cnpjEscriturador))
+                return false;
+            return true;
+        }
+
+        private FcaCiaAbertaEscrituradorVO getEnclosingInstance() {
+            return FcaCiaAbertaEscrituradorVO.this;
+        }
+
+        
+
+    }
+
+    @EmbeddedId
+    private FcaCiaAbertaEscrituradorId idComposto;
 
     @Column(name = "cae_data_referencia")
     private Date dataReferencia;
@@ -21,21 +99,20 @@ public class FcaCiaAbertaEscrituradorVO {
     private Long idDocumento;
 
     @Column(name = "cae_escriturador")
-    private String escriturador;
-
-    @Column(name = "car_cnpj_escriturador")
-    private Long cnpjEscriturador;
+    private String escriturador;    
 
     public FcaCiaAbertaEscrituradorVO() {
 
     }
 
-    public Long getCnpjCompanhia() {
-        return cnpjCompanhia;
+    
+
+    public FcaCiaAbertaEscrituradorId getIdComposto() {
+        return idComposto;
     }
 
-    public void setCnpjCompanhia(Long cnpjCompanhia) {
-        this.cnpjCompanhia = cnpjCompanhia;
+    public void setIdComposto(FcaCiaAbertaEscrituradorId idComposto) {
+        this.idComposto = idComposto;
     }
 
     public Date getDataReferencia() {
@@ -62,13 +139,22 @@ public class FcaCiaAbertaEscrituradorVO {
         this.escriturador = escriturador;
     }
 
-    public Long getCnpjEscriturador() {
-        return cnpjEscriturador;
+    public FcaCiaAbertaEscrituradorVO parse(FcaCiaAbertaEscrituradorBean bean) {
+
+        ConverterString converterString = new ConverterString();
+
+        FcaCiaAbertaEscrituradorVO fcaCiaAbertaEscrituradorVO = new FcaCiaAbertaEscrituradorVO();
+
+        FcaCiaAbertaEscrituradorId fcaCiaAbertaEscrituradorId = new FcaCiaAbertaEscrituradorId();
+
+        fcaCiaAbertaEscrituradorId.setCnpjCompanhia(converterString.converterParaLong(bean.getCnpjCompanhia()));
+        fcaCiaAbertaEscrituradorId.setCnpjEscriturador(converterString.converterParaLong(bean.getCnpjEscriturador()));
+        fcaCiaAbertaEscrituradorVO.setIdComposto(fcaCiaAbertaEscrituradorId);
+        fcaCiaAbertaEscrituradorVO.setDataReferencia(converterString.converterParaData(bean.getDataReferencia()));
+        fcaCiaAbertaEscrituradorVO.setIdDocumento(converterString.converterParaLong(bean.getIdDocumento()));
+        fcaCiaAbertaEscrituradorVO.setEscriturador(bean.getEscriturador());
+
+        return fcaCiaAbertaEscrituradorVO;
     }
 
-    public void setCnpjEscriturador(Long cnpjEscriturador) {
-        this.cnpjEscriturador = cnpjEscriturador;
-    }
-
-    
 }
