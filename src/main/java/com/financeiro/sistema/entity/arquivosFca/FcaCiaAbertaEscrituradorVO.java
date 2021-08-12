@@ -84,9 +84,6 @@ public class FcaCiaAbertaEscrituradorVO extends PanacheEntityBase {
         private FcaCiaAbertaEscrituradorVO getEnclosingInstance() {
             return FcaCiaAbertaEscrituradorVO.this;
         }
-
-        
-
     }
 
     @EmbeddedId
@@ -104,9 +101,7 @@ public class FcaCiaAbertaEscrituradorVO extends PanacheEntityBase {
     public FcaCiaAbertaEscrituradorVO() {
 
     }
-
     
-
     public FcaCiaAbertaEscrituradorId getIdComposto() {
         return idComposto;
     }

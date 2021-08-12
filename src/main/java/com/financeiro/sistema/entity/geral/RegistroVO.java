@@ -2,6 +2,8 @@ package com.financeiro.sistema.entity.geral;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +16,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 public class RegistroVO extends PanacheEntityBase{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reg_id_registro")
     private Long idRegistro;
 

@@ -1,4 +1,4 @@
-package com.financeiro.sistema.processar_arquivo.arquivos;
+package com.financeiro.sistema.processar_arquivo.arquivoFca;
 
 import java.util.List;
 

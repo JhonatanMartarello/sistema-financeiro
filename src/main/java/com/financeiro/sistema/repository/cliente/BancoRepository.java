@@ -18,7 +18,8 @@ public class BancoRepository implements PanacheRepository<BancoVO>{
         LerArquivoCsv lerArquivoCsv = new LerArquivoCsv();
         // lerArquivoCsv.lerArquivoCsv("fca_cia_aberta_geral_2021.csv");
         // lerArquivoCsv.lerArquivoCsv("fca_cia_aberta_valor_mobiliario_2021.csv");
-        lerArquivoCsv.lerArquivoCsv("fca_cia_aberta_escriturador_2021.csv");
+        // lerArquivoCsv.lerArquivoCsv("fca_cia_aberta_escriturador_2021.csv");
+        lerArquivoCsv.lerArquivoCsv("negociacao_cei_2021.csv");
 
         return BancoVO.listAll();
     }
