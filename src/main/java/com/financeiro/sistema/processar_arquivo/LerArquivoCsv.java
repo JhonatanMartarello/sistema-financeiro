@@ -26,38 +26,46 @@ public class LerArquivoCsv {
 
     public void lerArquivoCsv(String nomeArquivo) {
 
+        if (FCA_CIA_ABERTA_GERAL.equals(nomeArquivo)) {
+
+            List<FcaCiaAbertaGeralBean> beans = this.arquivoCsvParaBean(FcaCiaAbertaGeralBean.class,
+                    PATH_ARQUIVO_FCA + nomeArquivo);
+            new FcaCiaAbertaGeralFacade().processarArquivoFcaCiaAbertaGeral(beans);
+
+        } else if (FCA_CIA_ABERTA_VALOR_MOBILIARIO.equals(nomeArquivo)) {
+
+            List<FcaCiaAbertaValorMobiliarioBean> beans = this.arquivoCsvParaBean(FcaCiaAbertaValorMobiliarioBean.class,
+                    PATH_ARQUIVO_FCA + nomeArquivo);
+            new FcaCiaAbertaValorMobiliarioFacade().processarArquivoFcaCiaAbertaValorMobiliario(beans);
+
+        } else if (FCA_CIA_ABERTA_ESCRITURADOR.equals(nomeArquivo)) {
+
+            List<FcaCiaAbertaEscrituradorBean> beans = this.arquivoCsvParaBean(FcaCiaAbertaEscrituradorBean.class,
+                    PATH_ARQUIVO_FCA + nomeArquivo);
+            new FcaCiaAbertaEscrituradorFacade().processarArquivoFcaCiaAbertaEscriturador(beans);
+
+        } else if (NEGOCIACAO_CEI.equals(nomeArquivo)) {
+
+            List<HistoricoNegociacaoCeiBean> beans = this.arquivoCsvParaBean(HistoricoNegociacaoCeiBean.class,
+                    PATH_ARQUIVO_CEI + nomeArquivo);
+            new HistoricoNegociacaoCeiFacade().processarArquivoHistoricoNegociacao(beans);
+
+        }
+    }
+
+    public <T> List<T> arquivoCsvParaBean(Class<T> T, String caminhoArquivo) {
         try {
-            
+            List<T> beans = new CsvToBeanBuilder(new FileReader(caminhoArquivo)).withSeparator(';').withType(T).build()
+                    .parse();
 
-            if (FCA_CIA_ABERTA_GERAL.equals(nomeArquivo)) {
-
-                List<FcaCiaAbertaGeralBean> beans = new CsvToBeanBuilder(new FileReader(PATH_ARQUIVO_FCA + nomeArquivo)).withSeparator(';')
-                        .withType(FcaCiaAbertaGeralBean.class).build().parse();
-                new FcaCiaAbertaGeralFacade().processarArquivoFcaCiaAbertaGeral(beans);
-
-            } else if (FCA_CIA_ABERTA_VALOR_MOBILIARIO.equals(nomeArquivo)) {
-
-                List<FcaCiaAbertaValorMobiliarioBean> beans = new CsvToBeanBuilder(new FileReader(PATH_ARQUIVO_FCA + nomeArquivo))
-                        .withSeparator(';').withType(FcaCiaAbertaValorMobiliarioBean.class).build().parse();
-                new FcaCiaAbertaValorMobiliarioFacade().processarArquivoFcaCiaAbertaValorMobiliario(beans);
-
-            } else if (FCA_CIA_ABERTA_ESCRITURADOR.equals(nomeArquivo)) {
-
-                List<FcaCiaAbertaEscrituradorBean> beans = new CsvToBeanBuilder(new FileReader(PATH_ARQUIVO_FCA + nomeArquivo))
-                        .withSeparator(';').withType(FcaCiaAbertaEscrituradorBean.class).build().parse();
-                new FcaCiaAbertaEscrituradorFacade().processarArquivoFcaCiaAbertaEscriturador(beans);
-
-            } else if (NEGOCIACAO_CEI.equals(nomeArquivo)) {
-
-                List<HistoricoNegociacaoCeiBean> beans = new CsvToBeanBuilder(new FileReader(PATH_ARQUIVO_CEI + nomeArquivo))
-                        .withSeparator(';').withType(HistoricoNegociacaoCeiBean.class).build().parse();
-                new HistoricoNegociacaoCeiFacade().processarArquivoHistoricoNegociacao(beans);
-                
-            }
-
+            return beans;
 
         } catch (IllegalStateException | FileNotFoundException e) {
             System.out.println("Error" + e.getStackTrace());
         }
+
+        return null;
+
     }
+
 }
