@@ -122,10 +122,10 @@ public class FcaCiaAbertaGeralVO extends PanacheEntityBase{
     public FcaCiaAbertaGeralVO parse(FcaCiaAbertaGeralBean bean) {
         FcaCiaAbertaGeralVO fcaCiaAbertaGeralVO = new FcaCiaAbertaGeralVO();
         fcaCiaAbertaGeralVO.setCnpjCompanhia(bean.getCnpjCompanhiaFormatada());
-        fcaCiaAbertaGeralVO.setDataReferencia(bean.getDataReferenciaFormatada());
+        fcaCiaAbertaGeralVO.setDataReferencia(bean.getDataReferencia());
         fcaCiaAbertaGeralVO.setIdDocumento(bean.getIdDocumentoFormatada());
         fcaCiaAbertaGeralVO.setNomeEmpresarial(bean.getNomeEmpresarial());
-        fcaCiaAbertaGeralVO.setDataConstituicao(bean.getDataConstituicaoFormatada());
+        fcaCiaAbertaGeralVO.setDataConstituicao(bean.getDataConstituicao());
         fcaCiaAbertaGeralVO.setCodigoCvm(bean.getCodigoCvmFormatada());
         fcaCiaAbertaGeralVO.setSetorAtividade(bean.getSetorAtividade());
         fcaCiaAbertaGeralVO.setDescricaoAtividade(bean.getDescricaoAtividade());

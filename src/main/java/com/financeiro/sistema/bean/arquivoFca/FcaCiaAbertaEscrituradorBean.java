@@ -1,6 +1,9 @@
-package com.financeiro.sistema.bean.arquivosFca;
+package com.financeiro.sistema.bean.arquivoFca;
+
+import java.util.Date;
 
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 
 public class FcaCiaAbertaEscrituradorBean {
     
@@ -8,7 +11,8 @@ public class FcaCiaAbertaEscrituradorBean {
     private String cnpjCompanhia;
 
     @CsvBindByName(column = "Data_Referencia")
-    private String dataReferencia;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataReferencia;
 
     @CsvBindByName(column = "Versao")
     private int versao;
@@ -68,10 +72,12 @@ public class FcaCiaAbertaEscrituradorBean {
     private String email;
 
     @CsvBindByName(column = "Data_Inicio_Atuacao")
-    private String dataInicioAtuacao;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataInicioAtuacao;
 
     @CsvBindByName(column = "Data_Fim_Atuacao")
-    private String dataFimAtuacao;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataFimAtuacao;
 
     public String getCnpjCompanhia() {
         return cnpjCompanhia;
@@ -81,11 +87,11 @@ public class FcaCiaAbertaEscrituradorBean {
         this.cnpjCompanhia = cnpjCompanhia;
     }
 
-    public String getDataReferencia() {
+    public Date getDataReferencia() {
         return dataReferencia;
     }
 
-    public void setDataReferencia(String dataReferencia) {
+    public void setDataReferencia(Date dataReferencia) {
         this.dataReferencia = dataReferencia;
     }
 
@@ -241,19 +247,19 @@ public class FcaCiaAbertaEscrituradorBean {
         this.email = email;
     }
 
-    public String getDataInicioAtuacao() {
+    public Date getDataInicioAtuacao() {
         return dataInicioAtuacao;
     }
 
-    public void setDataInicioAtuacao(String dataInicioAtuacao) {
+    public void setDataInicioAtuacao(Date dataInicioAtuacao) {
         this.dataInicioAtuacao = dataInicioAtuacao;
     }
 
-    public String getDataFimAtuacao() {
+    public Date getDataFimAtuacao() {
         return dataFimAtuacao;
     }
 
-    public void setDataFimAtuacao(String dataFimAtuacao) {
+    public void setDataFimAtuacao(Date dataFimAtuacao) {
         this.dataFimAtuacao = dataFimAtuacao;
     }
 

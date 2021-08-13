@@ -121,12 +121,12 @@ public class FcaCiaAbertaValorMobiliarioVO extends PanacheEntityBase {
         FcaCiaAbertaValorMobiliarioVO fcaCiaAbertaValorMobiliarioVO = new FcaCiaAbertaValorMobiliarioVO();
 
         fcaCiaAbertaValorMobiliarioVO.setCnpjCompanhia(converterString.converterParaLong(bean.getCnpjCompanhia()));
-        fcaCiaAbertaValorMobiliarioVO.setDataReferencia(converterString.converterParaData(bean.getDataReferencia()));
+        fcaCiaAbertaValorMobiliarioVO.setDataReferencia(bean.getDataReferencia());
         fcaCiaAbertaValorMobiliarioVO.setIdDocumento(converterString.converterParaLong(bean.getIdDocumento()));
         fcaCiaAbertaValorMobiliarioVO.setCodigoNegociacao(bean.getCodigoNegociacao());
         fcaCiaAbertaValorMobiliarioVO.setValorMobiliario(bean.getValorMobiliario());
         fcaCiaAbertaValorMobiliarioVO.setComposicaoBdrUnit(bean.getComposicaoBdrUnit());
-        fcaCiaAbertaValorMobiliarioVO.setDataInicioNegociacao(converterString.converterParaData(bean.getDataInicioNegociacao()));
+        fcaCiaAbertaValorMobiliarioVO.setDataInicioNegociacao(bean.getDataInicioNegociacao());
         fcaCiaAbertaValorMobiliarioVO.setSegmento(bean.getSegmento());
 
         return fcaCiaAbertaValorMobiliarioVO;

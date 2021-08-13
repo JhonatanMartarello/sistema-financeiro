@@ -1,13 +1,17 @@
-package com.financeiro.sistema.bean.arquivosFca;
+package com.financeiro.sistema.bean.arquivoFca;
+
+import java.util.Date;
 
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 
 public class FcaCiaAbertaValorMobiliarioBean {
     @CsvBindByName(column = "CNPJ_Companhia")
     private String cnpjCompanhia;
 
     @CsvBindByName(column = "Data_Referencia")
-    private String dataReferencia;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataReferencia;
 
     @CsvBindByName(column = "Versao")
     private int versao;
@@ -40,19 +44,23 @@ public class FcaCiaAbertaValorMobiliarioBean {
     private String entidadeAdministradora;
 
     @CsvBindByName(column = "Data_Inicio_Negociacao")
-    private String dataInicioNegociacao;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataInicioNegociacao;
 
     @CsvBindByName(column = "Data_Fim_Negociacao")
-    private String dataFimNegociacao;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataFimNegociacao;
 
     @CsvBindByName(column = "Segmento")
     private String segmento;
 
     @CsvBindByName(column = "Data_Inicio_Listagem")
-    private String dataInicioListagem;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataInicioListagem;
 
     @CsvBindByName(column = "Data_Fim_Listagem")
-    private String setorAtividade;
+    @CsvDate("yyyy-MM-dd")
+    private Date setorAtividade;
 
     public String getCnpjCompanhia() {
         return cnpjCompanhia;
@@ -62,11 +70,11 @@ public class FcaCiaAbertaValorMobiliarioBean {
         this.cnpjCompanhia = cnpjCompanhia;
     }
 
-    public String getDataReferencia() {
+    public Date getDataReferencia() {
         return dataReferencia;
     }
 
-    public void setDataReferencia(String dataReferencia) {
+    public void setDataReferencia(Date dataReferencia) {
         this.dataReferencia = dataReferencia;
     }
 
@@ -150,19 +158,19 @@ public class FcaCiaAbertaValorMobiliarioBean {
         this.entidadeAdministradora = entidadeAdministradora;
     }
 
-    public String getDataInicioNegociacao() {
+    public Date getDataInicioNegociacao() {
         return dataInicioNegociacao;
     }
 
-    public void setDataInicioNegociacao(String dataInicioNegociacao) {
+    public void setDataInicioNegociacao(Date dataInicioNegociacao) {
         this.dataInicioNegociacao = dataInicioNegociacao;
     }
 
-    public String getDataFimNegociacao() {
+    public Date getDataFimNegociacao() {
         return dataFimNegociacao;
     }
 
-    public void setDataFimNegociacao(String dataFimNegociacao) {
+    public void setDataFimNegociacao(Date dataFimNegociacao) {
         this.dataFimNegociacao = dataFimNegociacao;
     }
 
@@ -174,19 +182,19 @@ public class FcaCiaAbertaValorMobiliarioBean {
         this.segmento = segmento;
     }
 
-    public String getDataInicioListagem() {
+    public Date getDataInicioListagem() {
         return dataInicioListagem;
     }
 
-    public void setDataInicioListagem(String dataInicioListagem) {
+    public void setDataInicioListagem(Date dataInicioListagem) {
         this.dataInicioListagem = dataInicioListagem;
     }
 
-    public String getSetorAtividade() {
+    public Date getSetorAtividade() {
         return setorAtividade;
     }
 
-    public void setSetorAtividade(String setorAtividade) {
+    public void setSetorAtividade(Date setorAtividade) {
         this.setorAtividade = setorAtividade;
     }
 

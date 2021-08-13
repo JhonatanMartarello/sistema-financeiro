@@ -1,9 +1,10 @@
-package com.financeiro.sistema.bean.arquivosFca;
+package com.financeiro.sistema.bean.arquivoFca;
 
 import java.util.Date;
 
 import com.financeiro.sistema.utils.ConverterString;
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 
 public class FcaCiaAbertaGeralBean {
 
@@ -11,7 +12,8 @@ public class FcaCiaAbertaGeralBean {
     private String cnpjCompanhia;
 
     @CsvBindByName(column = "Data_Referencia")
-    private String dataReferencia;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataReferencia;
 
     @CsvBindByName(column = "Versao")
     private int versao;
@@ -29,25 +31,29 @@ public class FcaCiaAbertaGeralBean {
     private String nomeEmpresarialAnterior;
 
     @CsvBindByName(column = "Data_Constituicao")
-    private String dataConstituicao;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataConstituicao;
 
     @CsvBindByName(column = "Codigo_CVM")
     private String codigoCvm;
 
     @CsvBindByName(column = "Data_Registro_CVM")
-    private String dataRegistroCVM;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataRegistroCVM;
 
     @CsvBindByName(column = "Categoria_Registro_CVM")
     private String categoriaRegistroCVM;
 
     @CsvBindByName(column = "Data_Categoria_Registro_CVM")
-    private String dataCategoriaRegistroCVM;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataCategoriaRegistroCVM;
 
     @CsvBindByName(column = "Situacao_Registro_CVM")
     private String situacaoRegistroCVM;
 
     @CsvBindByName(column = "Data_Situacao_Registro_CVM")
-    private String dataSituacaoRegistroCVM;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataSituacaoRegistroCVM;
 
     @CsvBindByName(column = "Pais_Origem")
     private String paisOrigem;
@@ -65,13 +71,15 @@ public class FcaCiaAbertaGeralBean {
     private String situacaoEmissor;
 
     @CsvBindByName(column = "Data_Situacao_Emissor")
-    private String dataSituacaoEmissor;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataSituacaoEmissor;
 
     @CsvBindByName(column = "Especie_Controle_Acionario")
     private String especieControleAcionario;
 
     @CsvBindByName(column = "Data_Especie_Controle_Acionario")
-    private String dataEspecieControleAcionario;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataEspecieControleAcionario;
 
     @CsvBindByName(column = "Dia_Encerramento_Exercicio_Social")
     private String diaEncerramentoExercicioSocial;
@@ -80,7 +88,8 @@ public class FcaCiaAbertaGeralBean {
     private String mesEncerramentoExercicioSocial;
 
     @CsvBindByName(column = "Data_Alteracao_Exercicio_Social")
-    private String dataAlteracaoExercicioSocial;
+    @CsvDate("yyyy-MM-dd")
+    private Date dataAlteracaoExercicioSocial;
 
     @CsvBindByName(column = "Pagina_Web")
     private String paginaWeb;
@@ -93,12 +102,11 @@ public class FcaCiaAbertaGeralBean {
         this.cnpjCompanhia = cnpjCompanhia;
     }
 
-    public String getDataReferencia() {
-        
+    public Date getDataReferencia() {        
         return dataReferencia;
     }
 
-    public void setDataReferencia(String dataReferencia) {
+    public void setDataReferencia(Date dataReferencia) {
         this.dataReferencia = dataReferencia;
     }
 
@@ -142,11 +150,11 @@ public class FcaCiaAbertaGeralBean {
         this.nomeEmpresarialAnterior = nomeEmpresarialAnterior;
     }
 
-    public String getDataConstituicao() {
+    public Date getDataConstituicao() {
         return dataConstituicao;
     }
 
-    public void setDataConstituicao(String dataConstituicao) {
+    public void setDataConstituicao(Date dataConstituicao) {
         this.dataConstituicao = dataConstituicao;
     }
 
@@ -158,11 +166,11 @@ public class FcaCiaAbertaGeralBean {
         this.codigoCvm = codigoCvm;
     }
 
-    public String getDataRegistroCVM() {
+    public Date getDataRegistroCVM() {
         return dataRegistroCVM;
     }
 
-    public void setDataRegistroCVM(String dataRegistroCVM) {
+    public void setDataRegistroCVM(Date dataRegistroCVM) {
         this.dataRegistroCVM = dataRegistroCVM;
     }
 
@@ -174,11 +182,11 @@ public class FcaCiaAbertaGeralBean {
         this.categoriaRegistroCVM = categoriaRegistroCVM;
     }
 
-    public String getDataCategoriaRegistroCVM() {
+    public Date getDataCategoriaRegistroCVM() {
         return dataCategoriaRegistroCVM;
     }
 
-    public void setDataCategoriaRegistroCVM(String dataCategoriaRegistroCVM) {
+    public void setDataCategoriaRegistroCVM(Date dataCategoriaRegistroCVM) {
         this.dataCategoriaRegistroCVM = dataCategoriaRegistroCVM;
     }
 
@@ -190,11 +198,11 @@ public class FcaCiaAbertaGeralBean {
         this.situacaoRegistroCVM = situacaoRegistroCVM;
     }
 
-    public String getDataSituacaoRegistroCVM() {
+    public Date getDataSituacaoRegistroCVM() {
         return dataSituacaoRegistroCVM;
     }
 
-    public void setDataSituacaoRegistroCVM(String dataSituacaoRegistroCVM) {
+    public void setDataSituacaoRegistroCVM(Date dataSituacaoRegistroCVM) {
         this.dataSituacaoRegistroCVM = dataSituacaoRegistroCVM;
     }
 
@@ -238,11 +246,11 @@ public class FcaCiaAbertaGeralBean {
         this.situacaoEmissor = situacaoEmissor;
     }
 
-    public String getDataSituacaoEmissor() {
+    public Date getDataSituacaoEmissor() {
         return dataSituacaoEmissor;
     }
 
-    public void setDataSituacaoEmissor(String dataSituacaoEmissor) {
+    public void setDataSituacaoEmissor(Date dataSituacaoEmissor) {
         this.dataSituacaoEmissor = dataSituacaoEmissor;
     }
 
@@ -254,11 +262,11 @@ public class FcaCiaAbertaGeralBean {
         this.especieControleAcionario = especieControleAcionario;
     }
 
-    public String getDataEspecieControleAcionario() {
+    public Date getDataEspecieControleAcionario() {
         return dataEspecieControleAcionario;
     }
 
-    public void setDataEspecieControleAcionario(String dataEspecieControleAcionario) {
+    public void setDataEspecieControleAcionario(Date dataEspecieControleAcionario) {
         this.dataEspecieControleAcionario = dataEspecieControleAcionario;
     }
 
@@ -278,11 +286,11 @@ public class FcaCiaAbertaGeralBean {
         this.mesEncerramentoExercicioSocial = mesEncerramentoExercicioSocial;
     }
 
-    public String getDataAlteracaoExercicioSocial() {
+    public Date getDataAlteracaoExercicioSocial() {
         return dataAlteracaoExercicioSocial;
     }
 
-    public void setDataAlteracaoExercicioSocial(String dataAlteracaoExercicioSocial) {
+    public void setDataAlteracaoExercicioSocial(Date dataAlteracaoExercicioSocial) {
         this.dataAlteracaoExercicioSocial = dataAlteracaoExercicioSocial;
     }
 
@@ -294,14 +302,6 @@ public class FcaCiaAbertaGeralBean {
         this.paginaWeb = paginaWeb;
     }    
 
-    public Date getDataReferenciaFormatada() {
-        return new ConverterString().converterParaData(this.dataReferencia);
-    }
-
-    public Date getDataConstituicaoFormatada() {
-        return new ConverterString().converterParaData(this.dataConstituicao);
-    }
-    
     public Long getCnpjCompanhiaFormatada() {
         return new ConverterString().converterParaLong(this.cnpjCompanhia);
     }

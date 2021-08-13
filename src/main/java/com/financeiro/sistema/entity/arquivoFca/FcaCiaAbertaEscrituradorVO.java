@@ -144,7 +144,7 @@ public class FcaCiaAbertaEscrituradorVO extends PanacheEntityBase {
         fcaCiaAbertaEscrituradorId.setCnpjCompanhia(converterString.converterParaLong(bean.getCnpjCompanhia()));
         fcaCiaAbertaEscrituradorId.setCnpjEscriturador(converterString.converterParaLong(bean.getCnpjEscriturador()));
         fcaCiaAbertaEscrituradorVO.setIdComposto(fcaCiaAbertaEscrituradorId);
-        fcaCiaAbertaEscrituradorVO.setDataReferencia(converterString.converterParaData(bean.getDataReferencia()));
+        fcaCiaAbertaEscrituradorVO.setDataReferencia(bean.getDataReferencia());
         fcaCiaAbertaEscrituradorVO.setIdDocumento(converterString.converterParaLong(bean.getIdDocumento()));
         fcaCiaAbertaEscrituradorVO.setEscriturador(bean.getEscriturador());
 
