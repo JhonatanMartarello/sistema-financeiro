@@ -3,7 +3,6 @@ package com.financeiro.sistema.entity.arquivoCei;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

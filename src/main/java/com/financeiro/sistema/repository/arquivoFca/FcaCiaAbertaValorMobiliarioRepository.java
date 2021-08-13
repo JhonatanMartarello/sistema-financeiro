@@ -1,9 +1,8 @@
-package com.financeiro.sistema.repository.arquivosFca;
+package com.financeiro.sistema.repository.arquivoFca;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.ApplicationPath;
 
-import com.financeiro.sistema.entity.arquivosFca.FcaCiaAbertaValorMobiliarioVO;
+import com.financeiro.sistema.entity.arquivoFca.FcaCiaAbertaValorMobiliarioVO;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 

@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.financeiro.sistema.bean.arquivosFca.FcaCiaAbertaGeralBean;
-import com.financeiro.sistema.entity.arquivosFca.FcaCiaAbertaGeralVO;
-import com.financeiro.sistema.repository.arquivosFca.FcaCiaAbertaGeralRepository;
+import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaGeralBean;
+import com.financeiro.sistema.entity.arquivoFca.FcaCiaAbertaGeralVO;
+import com.financeiro.sistema.repository.arquivoFca.FcaCiaAbertaGeralRepository;
 
 @Transactional
 public class FcaCiaAbertaGeralFacade {

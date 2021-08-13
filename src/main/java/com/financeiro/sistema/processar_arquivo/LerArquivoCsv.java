@@ -5,9 +5,9 @@ import java.io.FileReader;
 import java.util.List;
 
 import com.financeiro.sistema.bean.arquivoCei.HistoricoNegociacaoCeiBean;
-import com.financeiro.sistema.bean.arquivosFca.FcaCiaAbertaEscrituradorBean;
-import com.financeiro.sistema.bean.arquivosFca.FcaCiaAbertaGeralBean;
-import com.financeiro.sistema.bean.arquivosFca.FcaCiaAbertaValorMobiliarioBean;
+import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaEscrituradorBean;
+import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaGeralBean;
+import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaValorMobiliarioBean;
 import com.financeiro.sistema.processar_arquivo.arquivoCei.HistoricoNegociacaoCeiFacade;
 import com.financeiro.sistema.processar_arquivo.arquivoFca.FcaCiaAbertaEscrituradorFacade;
 import com.financeiro.sistema.processar_arquivo.arquivoFca.FcaCiaAbertaGeralFacade;
@@ -55,7 +55,7 @@ public class LerArquivoCsv {
 
     public <T> List<T> arquivoCsvParaBean(Class<T> T, String caminhoArquivo) {
         try {
-            List<T> beans = new CsvToBeanBuilder(new FileReader(caminhoArquivo)).withSeparator(';').withType(T).build()
+            List<T> beans = new CsvToBeanBuilder<T>(new FileReader(caminhoArquivo)).withSeparator(';').withType(T).build()
                     .parse();
 
             return beans;

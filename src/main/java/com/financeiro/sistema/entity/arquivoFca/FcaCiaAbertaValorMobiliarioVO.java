@@ -1,4 +1,4 @@
-package com.financeiro.sistema.entity.arquivosFca;
+package com.financeiro.sistema.entity.arquivoFca;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.financeiro.sistema.bean.arquivosFca.FcaCiaAbertaValorMobiliarioBean;
+import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaValorMobiliarioBean;
 import com.financeiro.sistema.utils.ConverterString;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
