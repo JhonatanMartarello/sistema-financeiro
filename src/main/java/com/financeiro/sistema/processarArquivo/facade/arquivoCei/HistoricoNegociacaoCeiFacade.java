@@ -13,6 +13,8 @@ public class HistoricoNegociacaoCeiFacade {
     
     public void processarArquivoHistoricoNegociacao(List<HistoricoNegociacaoCeiBean> beans){
 
+        beans.sort((HistoricoNegociacaoCeiBean bean1, HistoricoNegociacaoCeiBean bean2) -> bean1.getDataNegocio().compareTo(bean2.getDataNegocio()));
+
         HistoricoNegociacaoCeiRepository historicoNegociacaoCeiRepository = new HistoricoNegociacaoCeiRepository();
         for(HistoricoNegociacaoCeiBean bean : beans){
             HistoricoNegociacaoCeiVO vo = new HistoricoNegociacaoCeiVO().parse(bean);

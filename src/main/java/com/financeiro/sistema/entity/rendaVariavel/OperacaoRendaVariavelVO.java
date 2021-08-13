@@ -1,7 +1,7 @@
 package com.financeiro.sistema.entity.rendaVariavel;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,22 +25,34 @@ public class OperacaoRendaVariavelVO extends PanacheEntityBase{
     private Long codOperacao;
 
     @Column(name = "orv_data_movimento")
-    private Timestamp dataMovimento;
+    private Date dataMovimento;
 
     @Column(name = "orv_quantidade")
     private Integer quantidade;
 
-    @Column(name = "orv_valor")
+    @Column(name = "orv_valor_operacao")
     private BigDecimal valor;
+
+    @Column(name = "orv_preco")
+    private BigDecimal preco;
+
+    @Column(name = "orv_taxa_liquidacao")
+    private BigDecimal taxaLiquidacao;
+
+    @Column(name = "orv_emolumentos")
+    private BigDecimal emolumentos;
+
+    @Column(name = "orv_corretagem")
+    private BigDecimal corretagem;
 
     @ManyToOne
     @JoinColumn(name = "orv_operacao")
     private RegistroVO operacao;
 
     @Column(name = "orv_custo")
-    private BigDecimal custo;
+    private BigDecimal custoTotal;
 
-    @Column(name = "orv_valor_total")
+    @Column(name = "orv_valor_operacao_total")
     private BigDecimal valorTotal;
 
     @ManyToOne
@@ -51,6 +63,102 @@ public class OperacaoRendaVariavelVO extends PanacheEntityBase{
 
     }
 
+    public Long getCodOperacao() {
+        return codOperacao;
+    }
 
+    public void setCodOperacao(Long codOperacao) {
+        this.codOperacao = codOperacao;
+    }
+
+    public Date getDataMovimento() {
+        return dataMovimento;
+    }
+
+    public void setDataMovimento(Date dataMovimento) {
+        this.dataMovimento = dataMovimento;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
+    public RegistroVO getOperacao() {
+        return operacao;
+    }
+
+    public void setOperacao(RegistroVO operacao) {
+        this.operacao = operacao;
+    }
+
+    public BigDecimal getCustoTotal() {
+        return custoTotal;
+    }
+
+    public void setCustoTotal(BigDecimal custoTotal) {
+        this.custoTotal = custoTotal;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public ResultadoRendaVariavelVO getResultadoRendaVariavel() {
+        return resultadoRendaVariavel;
+    }
+
+    public void setResultadoRendaVariavel(ResultadoRendaVariavelVO resultadoRendaVariavel) {
+        this.resultadoRendaVariavel = resultadoRendaVariavel;
+    }
+
+    public BigDecimal getTaxaLiquidacao() {
+        return taxaLiquidacao;
+    }
+
+    public void setTaxaLiquidacao(BigDecimal taxaLiquidacao) {
+        this.taxaLiquidacao = taxaLiquidacao;
+    }
+
+    public BigDecimal getEmolumentos() {
+        return emolumentos;
+    }
+
+    public void setEmolumentos(BigDecimal emolumentos) {
+        this.emolumentos = emolumentos;
+    }
+
+    public BigDecimal getCorretagem() {
+        return corretagem;
+    }
+
+    public void setCorretagem(BigDecimal corretagem) {
+        this.corretagem = corretagem;
+    }
+
+    
     
 }

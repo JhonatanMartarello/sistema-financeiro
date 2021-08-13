@@ -7,7 +7,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
 import com.financeiro.sistema.entity.cliente.BancoVO;
-import com.financeiro.sistema.processar_arquivo.LerArquivoCsv;
+import com.financeiro.sistema.processarArquivo.LerArquivoCsv;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
