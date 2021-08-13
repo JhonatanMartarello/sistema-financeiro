@@ -1,4 +1,4 @@
-package com.financeiro.sistema.bean.arquivoCei;
+package com.financeiro.sistema.processarArquivo.bean.arquivoCei;
 
 import java.math.BigDecimal;
 import java.util.Date;

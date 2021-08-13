@@ -1,4 +1,4 @@
-package com.financeiro.sistema.entity.arquivoCei;
+package com.financeiro.sistema.processarArquivo.entity.arquivoCei;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,9 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.financeiro.sistema.bean.arquivoCei.HistoricoNegociacaoCeiBean;
 import com.financeiro.sistema.entity.geral.RegistroVO;
-import com.financeiro.sistema.processar_arquivo.geral.DominioRegistroFacade;
+import com.financeiro.sistema.facade.geral.DominioRegistroFacade;
+import com.financeiro.sistema.processarArquivo.bean.arquivoCei.HistoricoNegociacaoCeiBean;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 

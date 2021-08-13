@@ -1,4 +1,4 @@
-package com.financeiro.sistema.processar_arquivo.geral;
+package com.financeiro.sistema.facade.geral;
 
 import com.financeiro.sistema.entity.geral.RegistroVO;
 

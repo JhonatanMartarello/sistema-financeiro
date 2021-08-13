@@ -1,4 +1,4 @@
-package com.financeiro.sistema.bean.arquivoFca;
+package com.financeiro.sistema.processarArquivo.bean.arquivoFca;
 
 import java.util.Date;
 

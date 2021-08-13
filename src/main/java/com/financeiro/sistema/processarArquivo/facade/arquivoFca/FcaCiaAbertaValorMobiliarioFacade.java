@@ -1,10 +1,10 @@
-package com.financeiro.sistema.processar_arquivo.arquivoFca;
+package com.financeiro.sistema.processarArquivo.facade.arquivoFca;
 
 import java.util.List;
 
-import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaValorMobiliarioBean;
-import com.financeiro.sistema.entity.arquivoFca.FcaCiaAbertaValorMobiliarioVO;
-import com.financeiro.sistema.repository.arquivoFca.FcaCiaAbertaValorMobiliarioRepository;
+import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaValorMobiliarioBean;
+import com.financeiro.sistema.processarArquivo.entity.arquivoFca.FcaCiaAbertaValorMobiliarioVO;
+import com.financeiro.sistema.processarArquivo.repository.arquivoFca.FcaCiaAbertaValorMobiliarioRepository;
 
 public class FcaCiaAbertaValorMobiliarioFacade {
 

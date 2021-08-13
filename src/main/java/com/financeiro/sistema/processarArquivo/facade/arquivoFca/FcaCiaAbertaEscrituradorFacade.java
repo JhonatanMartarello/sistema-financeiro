@@ -1,12 +1,12 @@
-package com.financeiro.sistema.processar_arquivo.arquivoFca;
+package com.financeiro.sistema.processarArquivo.facade.arquivoFca;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaEscrituradorBean;
-import com.financeiro.sistema.entity.arquivoFca.FcaCiaAbertaEscrituradorVO;
-import com.financeiro.sistema.repository.arquivoFca.FcaCiaAbertaEscrituradorRepository;
+import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaEscrituradorBean;
+import com.financeiro.sistema.processarArquivo.entity.arquivoFca.FcaCiaAbertaEscrituradorVO;
+import com.financeiro.sistema.processarArquivo.repository.arquivoFca.FcaCiaAbertaEscrituradorRepository;
 
 @Transactional
 public class FcaCiaAbertaEscrituradorFacade {

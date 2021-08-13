@@ -1,8 +1,8 @@
-package com.financeiro.sistema.repository.arquivoCei;
+package com.financeiro.sistema.processarArquivo.repository.arquivoCei;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import com.financeiro.sistema.entity.arquivoCei.HistoricoNegociacaoCeiVO;
+import com.financeiro.sistema.processarArquivo.entity.arquivoCei.HistoricoNegociacaoCeiVO;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 

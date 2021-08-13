@@ -1,17 +1,17 @@
-package com.financeiro.sistema.processar_arquivo;
+package com.financeiro.sistema.processarArquivo;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-import com.financeiro.sistema.bean.arquivoCei.HistoricoNegociacaoCeiBean;
-import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaEscrituradorBean;
-import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaGeralBean;
-import com.financeiro.sistema.bean.arquivoFca.FcaCiaAbertaValorMobiliarioBean;
-import com.financeiro.sistema.processar_arquivo.arquivoCei.HistoricoNegociacaoCeiFacade;
-import com.financeiro.sistema.processar_arquivo.arquivoFca.FcaCiaAbertaEscrituradorFacade;
-import com.financeiro.sistema.processar_arquivo.arquivoFca.FcaCiaAbertaGeralFacade;
-import com.financeiro.sistema.processar_arquivo.arquivoFca.FcaCiaAbertaValorMobiliarioFacade;
+import com.financeiro.sistema.processarArquivo.bean.arquivoCei.HistoricoNegociacaoCeiBean;
+import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaEscrituradorBean;
+import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaGeralBean;
+import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaValorMobiliarioBean;
+import com.financeiro.sistema.processarArquivo.facade.arquivoCei.HistoricoNegociacaoCeiFacade;
+import com.financeiro.sistema.processarArquivo.facade.arquivoFca.FcaCiaAbertaEscrituradorFacade;
+import com.financeiro.sistema.processarArquivo.facade.arquivoFca.FcaCiaAbertaGeralFacade;
+import com.financeiro.sistema.processarArquivo.facade.arquivoFca.FcaCiaAbertaValorMobiliarioFacade;
 import com.opencsv.bean.CsvToBeanBuilder;
 
 public class LerArquivoCsv {
