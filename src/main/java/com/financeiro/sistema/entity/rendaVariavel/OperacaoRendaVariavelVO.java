@@ -12,13 +12,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.financeiro.sistema.entity.configuracao.OperacaoTaxaVO;
 import com.financeiro.sistema.entity.geral.RegistroVO;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 @Entity
 @Table(name = "tb_operacao_renda_variavel")
-public class OperacaoRendaVariavelVO extends PanacheEntityBase{
+public class OperacaoRendaVariavelVO extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orv_cod_operacao")
@@ -39,15 +40,15 @@ public class OperacaoRendaVariavelVO extends PanacheEntityBase{
     @Column(name = "orv_taxa_liquidacao")
     private BigDecimal taxaLiquidacao;
 
+    @ManyToOne
+    @JoinColumn(name = "orv_tipo_movimento")
+    private RegistroVO tipoMovimento;
+
     @Column(name = "orv_emolumentos")
     private BigDecimal emolumentos;
 
     @Column(name = "orv_corretagem")
     private BigDecimal corretagem;
-
-    @ManyToOne
-    @JoinColumn(name = "orv_operacao")
-    private RegistroVO operacao;
 
     @Column(name = "orv_custo")
     private BigDecimal custoTotal;
@@ -59,7 +60,11 @@ public class OperacaoRendaVariavelVO extends PanacheEntityBase{
     @JoinColumn(name = "orv_resultado_renda_variavel")
     private ResultadoRendaVariavelVO resultadoRendaVariavel;
 
-    public OperacaoRendaVariavelVO(){
+    @ManyToOne
+    @JoinColumn(name = "orv_codigo_operacao_taxa")
+    private OperacaoTaxaVO operacaoTaxaVO;
+
+    public OperacaoRendaVariavelVO() {
 
     }
 
@@ -103,12 +108,12 @@ public class OperacaoRendaVariavelVO extends PanacheEntityBase{
         this.preco = preco;
     }
 
-    public RegistroVO getOperacao() {
-        return operacao;
+    public RegistroVO getTipoMovimento() {
+        return tipoMovimento;
     }
 
-    public void setOperacao(RegistroVO operacao) {
-        this.operacao = operacao;
+    public void setTipoMovimento(RegistroVO tipoMovimento) {
+        this.tipoMovimento = tipoMovimento;
     }
 
     public BigDecimal getCustoTotal() {
@@ -159,6 +164,12 @@ public class OperacaoRendaVariavelVO extends PanacheEntityBase{
         this.corretagem = corretagem;
     }
 
-    
-    
+    public OperacaoTaxaVO getOperacaoTaxaVO() {
+        return operacaoTaxaVO;
+    }
+
+    public void setOperacaoTaxaVO(OperacaoTaxaVO operacaoTaxaVO) {
+        this.operacaoTaxaVO = operacaoTaxaVO;
+    }
+
 }

@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.transaction.Transactional;
 
 import com.financeiro.sistema.entity.rendaVariavel.OperacaoRendaVariavelVO;
+import com.financeiro.sistema.facade.geral.DominioRegistroFacade;
 import com.financeiro.sistema.processarArquivo.entity.arquivoCei.HistoricoNegociacaoCeiVO;
 import com.financeiro.sistema.repository.rendaVariavel.OperacaoRendaVariavelRepository;
 
@@ -22,8 +23,9 @@ public class OperacaoRendaVariavelFacade {
         operacaoRendaVariavelVO.setQuantidade(historicoNegociacaoCeiVO.getQuantidade());
         operacaoRendaVariavelVO.setDataMovimento(historicoNegociacaoCeiVO.getDataNegocio());
         operacaoRendaVariavelVO.setCorretagem(BigDecimal.ZERO);
-        // operacaoRendaVariavelVO.setOperacao(operacao);
+        // operacaoRendaVariavelVO.setOperacaoTaxaVO(operacaoTaxaVO);
         
+        operacaoRendaVariavelVO.setTipoMovimento(historicoNegociacaoCeiVO.getTipoMovimento());
         operacaoRendaVariavelVO.setEmolumentos(this.calcularEmolumentos(valor));
         operacaoRendaVariavelVO.setTaxaLiquidacao(this.calcularTaxaLiquidacao(valor));
 
@@ -49,5 +51,7 @@ public class OperacaoRendaVariavelFacade {
     private BigDecimal calcularValorTotal(OperacaoRendaVariavelVO vo) {
         return vo.getValor().add(vo.getCustoTotal());
     }
+
+    
     
 }
