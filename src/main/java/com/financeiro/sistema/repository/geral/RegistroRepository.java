@@ -13,10 +13,11 @@ public class RegistroRepository implements PanacheRepository<RegistroVO> {
         return RegistroVO.find("descricao", descricao).firstResult();
     }
 
-    public RegistroVO carregarRegistroPeloDominioRegistro(Integer codDominio, Integer codRegistro) {
-        return (RegistroVO) RegistroVO.find(
-                "FROM RegistroVO re where re.codDominio = :codDominio and re.codRegistro = :codRegistro ", codDominio,
-                codRegistro);
+    public RegistroVO carregarRegistroPeloDominioRegistro(Long codDominio, Long codRegistro) {
+        return RegistroVO
+                .find("FROM RegistroVO re where re.codDominio = :codDominio and re.codRegistro = :codRegistro ",
+                        codDominio, codRegistro)
+                .singleResult();
     }
 
 }

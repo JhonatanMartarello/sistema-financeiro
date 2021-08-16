@@ -5,7 +5,7 @@ import com.financeiro.sistema.repository.configuracao.OperacaoTaxaRepository;
 
 public class OperacaoTaxaFacade {
 
-    public OperacaoTaxaVO carregarOperacaoTaxaAtiva(Integer tipoOperacao) {
+    public OperacaoTaxaVO carregarOperacaoTaxaAtiva(Long tipoOperacao) {
         return new OperacaoTaxaRepository().carregarOperacaoTaxaAtiva(tipoOperacao);
     }
     

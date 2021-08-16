@@ -9,7 +9,7 @@ public class DominioRegistroFacade {
         return new RegistroRepository().carregarRegistroPelaDescricao(descricao);
     }
 
-    public RegistroVO carregarRegistroPeloDominioRegistro(Integer codDominio, Integer codRegistro) {
+    public RegistroVO carregarRegistroPeloDominioRegistro(Long codDominio, Long codRegistro) {
         return new RegistroRepository().carregarRegistroPeloDominioRegistro(codDominio, codRegistro);
     }
 

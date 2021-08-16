@@ -2,16 +2,16 @@ package com.financeiro.sistema.constantes;
 
 public class Constantes {
 
-    public static final Integer TIPO_MOVIMENTO = 1;
-    public static final Integer TIPO_MOVIMENTO_COMPRA = 1;
-    public static final Integer TIPO_MOVIMENTO_VENDA = 2;
+    public static final Long TIPO_MOVIMENTO = 1L;
+    public static final Long TIPO_MOVIMENTO_COMPRA = 1L;
+    public static final Long TIPO_MOVIMENTO_VENDA = 2L;
 
-    public static final Integer MERCADO = 2;
-    public static final Integer MERCADO_A_VISTA = 1;
-    public static final Integer MERCADO_FRACIONARIO = 2;
+    public static final Long MERCADO = 2L;
+    public static final Long MERCADO_A_VISTA = 1L;
+    public static final Long MERCADO_FRACIONARIO = 2L;
 
-    public static final Integer TIPO_OPERACAO = 3;
-    public static final Integer TIPO_OPERACAO_DAYTRADE = 1;
-    public static final Integer TIPO_OPERACAO_SWINGTRADE = 2;
+    public static final Long TIPO_OPERACAO = 3L;
+    public static final Long TIPO_OPERACAO_DAYTRADE = 1L;
+    public static final Long TIPO_OPERACAO_SWINGTRADE = 2L;
     
 }

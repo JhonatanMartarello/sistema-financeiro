@@ -14,6 +14,8 @@ import com.financeiro.sistema.repository.rendaVariavel.OperacaoRendaVariavelRepo
 @Transactional
 public class OperacaoRendaVariavelFacade {
 
+    public static final BigDecimal CEM = new BigDecimal(100);
+
     public void calcularIncluirValorOperacao(HistoricoNegociacaoCeiVO historicoNegociacaoCeiVO) {
 
         OperacaoTaxaVO operacaoTaxaVO = new OperacaoTaxaFacade()
@@ -31,9 +33,9 @@ public class OperacaoRendaVariavelFacade {
         operacaoRendaVariavelVO.setOperacaoTaxaVO(operacaoTaxaVO);
 
         operacaoRendaVariavelVO.setTipoMovimento(historicoNegociacaoCeiVO.getTipoMovimento());
+
         operacaoRendaVariavelVO.setEmolumentos(this.calcularEmolumentos(valor, operacaoTaxaVO.getEmolumento()));
-        operacaoRendaVariavelVO
-                .setTaxaLiquidacao(this.calcularTaxaLiquidacao(valor, operacaoTaxaVO.getTaxaLiquidacao()));
+        operacaoRendaVariavelVO.setTaxaLiquidacao(this.calcularTaxaLiquidacao(valor, operacaoTaxaVO.getTaxaLiquidacao()));
 
         operacaoRendaVariavelVO.setCustoTotal(this.calcularCustoTotal(operacaoRendaVariavelVO));
         operacaoRendaVariavelVO.setValorTotal(this.calcularValorTotal(operacaoRendaVariavelVO));
@@ -43,13 +45,13 @@ public class OperacaoRendaVariavelFacade {
     }
 
     private BigDecimal calcularTaxaLiquidacao(BigDecimal valorOperacao, BigDecimal taxaLiquidacao) {
-        BigDecimal valorTaxaLiquidacao = valorOperacao.multiply(taxaLiquidacao);
+        BigDecimal valorTaxaLiquidacao = valorOperacao.multiply(taxaLiquidacao.divide(CEM));
         return valorTaxaLiquidacao;
     }
 
     private BigDecimal calcularEmolumentos(BigDecimal valorOperacao, BigDecimal emolumento) {
-        BigDecimal valorTaxaLiquidacao = valorOperacao.multiply(emolumento);
-        return valorTaxaLiquidacao;
+        BigDecimal valorTaxaEmolumento = valorOperacao.multiply(emolumento.divide(CEM));
+        return valorTaxaEmolumento;
     }
 
     private BigDecimal calcularCustoTotal(OperacaoRendaVariavelVO vo) {

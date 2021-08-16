@@ -27,10 +27,10 @@ public class OperacaoTaxaVO extends PanacheEntityBase {
     @Column(name = "opt_descricao")
     private String descricao;
 
-    @Column(name = "opt_taxa_liquidacao")
+    @Column(name = "opt_taxa_liquidacao", columnDefinition = "Decimal(19,6)")
     private BigDecimal taxaLiquidacao;
 
-    @Column(name = "opt_emolumento")
+    @Column(name = "opt_emolumento", columnDefinition = "Decimal(19,6)")
     private BigDecimal emolumento;
 
     @Column(name = "opt_data_inicial")
