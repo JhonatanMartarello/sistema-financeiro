@@ -5,10 +5,12 @@ import java.io.FileReader;
 import java.util.List;
 
 import com.financeiro.sistema.processarArquivo.bean.arquivoCei.HistoricoNegociacaoCeiBean;
+import com.financeiro.sistema.processarArquivo.bean.arquivoCei.ProventosCeiBean;
 import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaEscrituradorBean;
 import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaGeralBean;
 import com.financeiro.sistema.processarArquivo.bean.arquivoFca.FcaCiaAbertaValorMobiliarioBean;
 import com.financeiro.sistema.processarArquivo.facade.arquivoCei.HistoricoNegociacaoCeiFacade;
+import com.financeiro.sistema.processarArquivo.facade.arquivoCei.ProventosCeiFacade;
 import com.financeiro.sistema.processarArquivo.facade.arquivoFca.FcaCiaAbertaEscrituradorFacade;
 import com.financeiro.sistema.processarArquivo.facade.arquivoFca.FcaCiaAbertaGeralFacade;
 import com.financeiro.sistema.processarArquivo.facade.arquivoFca.FcaCiaAbertaValorMobiliarioFacade;
@@ -20,6 +22,7 @@ public class LerArquivoCsv {
     final String FCA_CIA_ABERTA_VALOR_MOBILIARIO = "fca_cia_aberta_valor_mobiliario_2021.csv";
     final String FCA_CIA_ABERTA_ESCRITURADOR = "fca_cia_aberta_escriturador_2021.csv";
     final String NEGOCIACAO_CEI = "negociacao_cei_2021.csv";
+    final String PROCENTOS_CEI = "movimentacao-2022-03-07-21-05-02.csv";
 
     final String PATH_ARQUIVO_FCA = "D:\\Usuários\\Jhonatan\\Documents\\dadosBolsa\\dados_acao\\fca_cia_aberta_2021\\";
     final String PATH_ARQUIVO_CEI = "D:\\Usuários\\Jhonatan\\Documents\\dadosBolsa\\dados_acao\\historico_cei_2021\\";
@@ -50,6 +53,12 @@ public class LerArquivoCsv {
                     PATH_ARQUIVO_CEI + nomeArquivo);
             new HistoricoNegociacaoCeiFacade().processarArquivoHistoricoNegociacao(beans);
 
+        } else if (PROCENTOS_CEI.equals(nomeArquivo)) {
+
+            List<ProventosCeiBean> beans = this.arquivoCsvParaBean(ProventosCeiBean.class,
+                    PATH_ARQUIVO_CEI + nomeArquivo);
+            new ProventosCeiFacade().processarArquivoProventosCei(beans);
+            
         }
     }
 

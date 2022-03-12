@@ -31,7 +31,7 @@ public class HistoricoNegociacaoCeiVO extends PanacheEntityBase {
     private Date dataNegocio;
 
     @ManyToOne
-    @JoinColumn(name = "hnc_tipo_movimentação")
+    @JoinColumn(name = "hnc_tipo_movimentacao")
     private RegistroVO tipoMovimento;
 
     @ManyToOne
